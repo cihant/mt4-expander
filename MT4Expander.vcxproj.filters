@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="header\etc">
+      <UniqueIdentifier>{34fb154f-75fc-4d57-bec3-d189569f5f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\lib">
+      <UniqueIdentifier>{d56d2595-b5fe-42af-b33c-7b9fe6ac2767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\lib\lock">
+      <UniqueIdentifier>{e7168246-f01b-44fc-bcaf-68ecc2cf7c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\shared">
+      <UniqueIdentifier>{af4d7b40-26a5-4457-b39a-53bc4f23bbb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\struct">
+      <UniqueIdentifier>{a7bb9004-fc05-4da4-b18d-925af144c2f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\struct\mt4">
+      <UniqueIdentifier>{571f039b-c44a-4465-9b3c-3294120339e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\struct\rsf">
+      <UniqueIdentifier>{caf881d0-7a84-4eba-a30f-996f64ff594f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header\struct\win32">
+      <UniqueIdentifier>{00dda7e1-7a9e-48c3-a391-620e40d943d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\etc">
+      <UniqueIdentifier>{61a162b5-f5e7-454c-8f45-96a3f270e007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lib">
+      <UniqueIdentifier>{e3716699-dd65-452d-97ad-841c15202644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\struct">
+      <UniqueIdentifier>{f5b3f08c-56ff-47ff-acb4-4bd1c0766021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\struct\win32">
+      <UniqueIdentifier>{6ecd8837-0870-4f61-b8c6-af328c63410f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\struct\rsf">
+      <UniqueIdentifier>{d49e3518-ec91-4ff3-bf8d-73b1784f3b70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\struct\mt4">
+      <UniqueIdentifier>{95608a93-2fe5-4e81-ae00-0b32077531b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\expander.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="header\stdafx.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="header\etc\md5.h">
+      <Filter>header\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\config.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\conversion.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\datetime.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\executioncontext.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\file.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\format.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\helper.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\math.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\memory.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\string.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\terminal.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\tester.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\timeseries.h">
+      <Filter>header\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\lock\CriticalSection.h">
+      <Filter>header\lib\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\lock\Lock.h">
+      <Filter>header\lib\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="header\lib\lock\Locker.h">
+      <Filter>header\lib\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="header\shared\defines.h">
+      <Filter>header\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="header\shared\errors.h">
+      <Filter>header\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\FxtHeader.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\HistoryHeader.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\MqlStr.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\PriceBar400.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\PriceBar401.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\Symbol.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\SymbolGroup.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\SymbolSelected.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\mt4\Tick.h">
+      <Filter>header\struct\mt4</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\rsf\CustomPosition.h">
+      <Filter>header\struct\rsf</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\rsf\ExecutionContext.h">
+      <Filter>header\struct\rsf</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\rsf\LogMessage.h">
+      <Filter>header\struct\rsf</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\rsf\Order.h">
+      <Filter>header\struct\rsf</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\rsf\Test.h">
+      <Filter>header\struct\rsf</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\FileTime.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\ProcessInformation.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\SecurityAttributes.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\StartupInfo.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\SystemTime.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\TimeZoneInformation.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="header\struct\win32\Win32FindData.h">
+      <Filter>header\struct\win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\expander.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\etc\md5.c">
+      <Filter>src\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\etc\subclassing.cpp">
+      <Filter>src\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\config.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\conversion.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\datetime.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\executioncontext.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\file.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\format.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\helper.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\lock.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\memory.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mql-stubs.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\string.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\terminal.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tester.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\FileTime.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\ProcessInformation.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\SecurityAttributes.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\StartupInfo.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\SystemTime.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\TimeZoneInformation.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\Win32FindData.cpp">
+      <Filter>src\struct\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\rsf\ExecutionContext.cpp">
+      <Filter>src\struct\rsf</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\rsf\Order.cpp">
+      <Filter>src\struct\rsf</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\rsf\Test.cpp">
+      <Filter>src\struct\rsf</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\mt4\HistoryHeader.cpp">
+      <Filter>src\struct\mt4</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\mt4\Symbol.cpp">
+      <Filter>src\struct\mt4</Filter>
+    </ClCompile>
+    <ClCompile Include="src\struct\mt4\SymbolGroup.cpp">
+      <Filter>src\struct\mt4</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

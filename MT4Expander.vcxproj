@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2E0F4332-3519-400E-9AC1-4B83EA652CCD}</ProjectGuid>
+    <RootNamespace>Expander</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.29403.142</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>bin\$(Configuration)\intermediate\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>bin\$(Configuration)\intermediate\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Message>Pre-build event:</Message>
+      <Command>if not exist "$(ProjectDir)header\shared\defines.h" (
+   echo Shared header "$(ProjectDir)header\shared\defines.h" missing, using backup...
+   copy "$(ProjectDir)header\shared\bak\defines.h" "$(ProjectDir)header\shared\"
+)
+if not exist "$(ProjectDir)header\shared\errors.h" (
+   echo Shared header "$(ProjectDir)header\shared\errors.h" missing, using backup...
+   copy "$(ProjectDir)header\shared\bak\errors.h" "$(ProjectDir)header\shared\"
+)
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\header;$(SolutionDir)\Plog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;_SECURE_SCL=0;STDLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalOptions> /J</AdditionalOptions>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Message>Post-build event:</Message>
+      <Command>echo Backing up shared header files...
+copy "$(ProjectDir)header\shared\*.h" "$(ProjectDir)header\shared\bak\"
+
+if exist "$(ProjectDir)bin\mql4-libraries\" (
+    echo Copying DLL to MetaTrader library folder...
+    copy "$(TargetPath)" "$(ProjectDir)bin\mql4-libraries\rsfExpander.$(Configuration)$(TargetExt)"
+)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Message>Pre-build event:</Message>
+      <Command>if not exist "$(ProjectDir)header\shared\defines.h" (
+   echo Shared header "$(ProjectDir)header\shared\defines.h" missing, using backup...
+   copy "$(ProjectDir)header\shared\bak\defines.h" "$(ProjectDir)header\shared\"
+)
+if not exist "$(ProjectDir)header\shared\errors.h" (
+   echo Shared header "$(ProjectDir)header\shared\errors.h" missing, using backup...
+   copy "$(ProjectDir)header\shared\bak\errors.h" "$(ProjectDir)header\shared\"
+)
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\header;$(SolutionDir)\Plog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;_SECURE_SCL=0;STDLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalOptions> /J</AdditionalOptions>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Message>Post-build event:</Message>
+      <Command>echo Backing up shared header files...
+copy "$(ProjectDir)header\shared\*.h" "$(ProjectDir)header\shared\bak\"
+
+if exist "$(ProjectDir)bin\mql4-libraries\" (
+    echo Copying DLL to MetaTrader library folder...
+    copy "$(TargetPath)" "$(ProjectDir)bin\mql4-libraries\rsfExpander.$(Configuration)$(TargetExt)"
+)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="header\etc\md5.h" />
+    <ClInclude Include="header\expander.h" />
+    <ClInclude Include="header\lib\config.h" />
+    <ClInclude Include="header\lib\conversion.h" />
+    <ClInclude Include="header\lib\datetime.h" />
+    <ClInclude Include="header\lib\executioncontext.h" />
+    <ClInclude Include="header\lib\file.h" />
+    <ClInclude Include="header\lib\format.h" />
+    <ClInclude Include="header\lib\helper.h" />
+    <ClInclude Include="header\lib\lock\CriticalSection.h" />
+    <ClInclude Include="header\lib\lock\Lock.h" />
+    <ClInclude Include="header\lib\lock\Locker.h" />
+    <ClInclude Include="header\lib\math.h" />
+    <ClInclude Include="header\lib\memory.h" />
+    <ClInclude Include="header\lib\string.h" />
+    <ClInclude Include="header\lib\terminal.h" />
+    <ClInclude Include="header\lib\tester.h" />
+    <ClInclude Include="header\lib\timeseries.h" />
+    <ClInclude Include="header\shared\defines.h" />
+    <ClInclude Include="header\shared\errors.h" />
+    <ClInclude Include="header\stdafx.h" />
+    <ClInclude Include="header\struct\mt4\FxtHeader.h" />
+    <ClInclude Include="header\struct\mt4\HistoryHeader.h" />
+    <ClInclude Include="header\struct\mt4\MqlStr.h" />
+    <ClInclude Include="header\struct\mt4\PriceBar400.h" />
+    <ClInclude Include="header\struct\mt4\PriceBar401.h" />
+    <ClInclude Include="header\struct\mt4\Symbol.h" />
+    <ClInclude Include="header\struct\mt4\SymbolGroup.h" />
+    <ClInclude Include="header\struct\mt4\SymbolSelected.h" />
+    <ClInclude Include="header\struct\mt4\Tick.h" />
+    <ClInclude Include="header\struct\rsf\CustomPosition.h" />
+    <ClInclude Include="header\struct\rsf\ExecutionContext.h" />
+    <ClInclude Include="header\struct\rsf\LogMessage.h" />
+    <ClInclude Include="header\struct\rsf\Order.h" />
+    <ClInclude Include="header\struct\rsf\Test.h" />
+    <ClInclude Include="header\struct\win32\FileTime.h" />
+    <ClInclude Include="header\struct\win32\ProcessInformation.h" />
+    <ClInclude Include="header\struct\win32\SecurityAttributes.h" />
+    <ClInclude Include="header\struct\win32\StartupInfo.h" />
+    <ClInclude Include="header\struct\win32\SystemTime.h" />
+    <ClInclude Include="header\struct\win32\TimeZoneInformation.h" />
+    <ClInclude Include="header\struct\win32\Win32FindData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\etc\md5.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)etc\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)etc\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\etc\subclassing.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)etc\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)etc\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\expander.cpp" />
+    <ClCompile Include="src\lib\config.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\conversion.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\datetime.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\executioncontext.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\file.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\format.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\helper.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\lock.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\math.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\memory.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\mql-stubs.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\string.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\terminal.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\lib\tester.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)lib\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)lib\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\mt4\HistoryHeader.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\mt4\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\mt4\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\mt4\Symbol.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\mt4\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\mt4\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\mt4\SymbolGroup.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\mt4\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\mt4\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\rsf\ExecutionContext.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\rsf\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\rsf\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\rsf\Order.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\rsf\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\rsf\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\rsf\Test.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\rsf\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\rsf\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\FileTime.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\ProcessInformation.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\SecurityAttributes.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\StartupInfo.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\SystemTime.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\TimeZoneInformation.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\struct\win32\Win32FindData.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)struct\win32\</ObjectFileName>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

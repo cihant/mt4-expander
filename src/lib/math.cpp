@@ -47,7 +47,7 @@ float WINAPI round(float value, int digits/*=0*/) {
       factor = pow(10., digits);
       dValue *= factor;
    }
-   dValue = round(dValue);
+   dValue = round(dValue, 0);
    if (digits) dValue /= factor;
    if (!value) value = 0;                                // convert -0 to +0
 

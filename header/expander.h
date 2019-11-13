@@ -9,8 +9,8 @@
 #define  EXPANDER_EXPORT  comment(linker, "/EXPORT:"__FUNCTION__"="__FUNCDNAME__)
 
 #include "stdafx.h"
-#include "shared/defines.h"                                 // shared between C++ and MQL
-#include "shared/errors.h"                                  // shared between C++ and MQL
+#include "shared\defines.h"                                 // shared between C++ and MQL
+#include "shared\errors.h"                                  // shared between C++ and MQL
 
 #include <iomanip>
 #include <string>

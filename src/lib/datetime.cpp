@@ -1,6 +1,6 @@
 #include "expander.h"
-#include "lib/datetime.h"
-#include "lib/helper.h"
+#include "lib\datetime.h"
+#include "lib\helper.h"
 
 #include <time.h>
 #include <vector>
@@ -25,7 +25,8 @@ datetime WINAPI GetGmtTime() {
 datetime WINAPI GetLocalTime() {
    datetime gmtTime = time(NULL);
    localtime(&gmtTime);
-   return(gmtTime - timezone);
+   //return(gmtTime - timezone);
+   return gmtTime;
    #pragma EXPANDER_EXPORT
 }
 
